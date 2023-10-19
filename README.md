@@ -1,40 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project demonstrates how to implement JWT (JSON Web Token) authentication in a Next.js application using the Tailwind CSS framework. The objective is to enable user login and access to a protected dashboard page. This README provides an overview of the project, how to run it, the code structure, and how the authentication flow is implemented.
+
 
 ## Getting Started
 
-First, run the development server:
+First, install the packages by running
+
+```bash
+npm install
+# or
+yarn 
+```
+
+
+After that, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+After that, you can run the tests with:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npx jest
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the project running.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Specifications 
 
-## Learn More
+### Code Structure
 
-To learn more about Next.js, take a look at the following resources:
+For the structure of the code I used the basic NextJS and Shadcn-UI structure.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Authentification Flow
 
-## Deploy on Vercel
+For the authentification flow I used the next-auth package + jsonwebtoken. (Creating the JWT, storing the token, the login and logout method).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Login page
+
+Designed a clean and intuitive login page using Tailwind CSS and Shadcn UI components.
+
+The login page features input fields for username and password, as well as a "Login" button.
+
+Implemented client-side validation to ensure that input fields are not empty before submission.
+
+Displayed appropriate error messages for incorrect credentials or server errors.
+
+#
+
+### Authentification
+
+Implemented JWT authentication on the server-side.
+
+Upon successful authentication, a JWT is created and sent to the client.
+
+Securely stored the JWT on the client-side and used it to manage the user's session.
+
+#
+
+### Dashboard Page
+
+Upon successful login, users are redirected to a dashboard page.
+
+Displayed a welcome message on the dashboard, mentioning the username of the logged-in user.
+
+Implemented a "Logout" button that clears the JWT and redirects the user back to the login page.
+
